@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char a[50], b[50], c[50];
+
+    scanf("%s %s", a, b);
+
+    int len1 = strlen(a);
+    int len2 = strlen(b);
+
+    strcpy(c, a);
+
+    printf("%d %d\n", len1, len2);
+    printf("%s\n", strcat(a, b));
+
+    char temp = c[0];
+    c[0] = b[0];
+    b[0] = temp;
+
+    printf("%s %s", c, b);
+
+    return 0;
+}
