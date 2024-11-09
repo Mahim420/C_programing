@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int arr[100005], min, max;
+
+void findMin(int i, int n)
+{
+    min = arr[0];
+
+    if (i == n)
+    {
+        return;
+    }
+    findMin(i + 1, n);
+
+    if (arr[i] < min)
+    {
+        min = arr[i];
+    }
+}
+
+void findMax(int i, int n)
+{
+     max = arr[0];
+    if (i == n)
+    {
+        return;
+    }
+
+    findMax(i + 1, n);
+
+    if(arr[i]>max){
+        max = arr[i];
+    }
+}
+
+int main()
+{
+    int size;
+    scanf("%d", &size);
+
+    for (int i = 0; i < size; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    findMin(0, size);
+    findMax(0, size);
+
+    printf("%d %d", min, max);
+
+    return 0;
+}
