@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+int freq_1[26] = {0};
+int freq_2[26] = {0};
+
+void updateFreq(int *freq, char *str, int size)
+{
+   for (int i = 0; i < size; i++)
+   {
+      int index = str[i] - 'a';
+      freq[index]++;
+   }
+}
+
+int swaping_mania()
+{
+
+   bool isEqual = true;
+
+   for (int i = 0; i < 26; i++)
+   {
+      if (freq_1[i] != freq_2[i])
+      {
+         isEqual = false;
+      }
+   }
+
+   return isEqual;
+}
+
+int main()
+{
+   char str_1[1001], str_2[1001];
+   scanf("%s %s", str_1, str_2);
+
+   int len_1 = strlen(str_1);
+   int len_2 = strlen(str_2);
+
+   updateFreq(freq_1, str_1, len_1);
+   updateFreq(freq_2, str_2, len_2);
+
+   bool check = swaping_mania();
+
+   if (check == 1)
+      printf("YES\n");
+   else
+      printf("NO\n");
+
+   return 0;
+}
