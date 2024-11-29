@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+int freq[26] = {0};
+int main()
+{
+    string str;
+    cin >> str;
+
+    string match = "EGYPT";
+
+    transform(str.begin(), str.end(), str.begin(), [](unsigned char c)
+              { return tolower(c); });
+
+    int e = 0, g = 0, y = 0, p = 0, t = 0;
+
+    int cnt = 0;
+
+    for (int i = 0; i < str.size(); i++)
+    {
+        if (str[i] == 'e')
+            e++;
+        if (str[i] == 'g')
+            g++;
+        if (str[i] == 'y')
+            y++;
+        if (str[i] == 'p')
+            p++;
+        if (str[i] == 't')
+            t++;
+    }
+
+   int min1 = min(e,g);
+   int min2 = min(y,p);
+   int min3 = min(min1, min2);
+
+   cout << min(min3, t);
+
+    return 0;
+}
