@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int cs;
+  cin >> cs;
+
+  while (cs--)
+  {
+    int n;
+    cin >> n;
+
+    int arr[n];
+
+    int even_cnt = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+      cin >> arr[i];
+    }
+
+    int need_operation = n / 2;
+
+    if (n % 2 == 0)
+    {
+      
+      for (int i = 0; i < n; i++)
+      {
+        if (arr[i] % 2 == 0)
+        {
+          even_cnt++;
+        }
+      }
+    }
+    
+    if(n%2==0){
+      cout << abs(even_cnt-need_operation);
+    }
+    else{
+      cout << -1;
+    }
+
+    cout << endl;
+  }
+
+  return 0;
+}
